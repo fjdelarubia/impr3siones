@@ -1,0 +1,16 @@
+{
+  "name": "impr3siones",
+  "version": "0.0.1",
+  "description": "Servicio de impresion",
+  "main": "index.js",
+  "repository": "git@github.com:fjdelarubia/impr3siones.git",
+  "author": "Javier de la Rubia (fjdelarubia) <javier.jrt@gmail.com>",
+  "license": "MIT",
+  "private": "true",
+  "workspaces": [
+    "packages/models",
+    "packages/utils",
+    "frontend",
+    "functions"
+  ]
+}
