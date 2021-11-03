@@ -6,6 +6,7 @@
     "lint:ci": "eslint \"src/**/*\" --max-warnings 0",
     "test:ci": "echo \"Noting to do here\"",
     "build": "tsc",
+    "build:ci": "yarn build",
     "serve": "npm run build && firebase emulators:start --only functions",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
