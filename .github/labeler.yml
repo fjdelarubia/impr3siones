@@ -1,0 +1,14 @@
+functions:
+  - functions/**/*
+
+frontend:
+  - frontend/**/*
+
+packages/data-connector:
+  - packages/data-connector/**/*
+
+packages/models:
+  - packages/models/**/*
+
+packages/utils:
+  - packages/utils/**/*

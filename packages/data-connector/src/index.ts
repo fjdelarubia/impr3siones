@@ -1,4 +1,1 @@
-export interface Order {
-  id: string;
-  status: 'pending' | 'processing' | 'ready' | 'completed';
-}
+export { default as Connector } from './firebase/connector';

@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:ci": "echo \"Noting to do here\"",
+    "lint:ci": "next lint --max-warnings 0",
+    "build:ci": "echo \"Noting to do here\""
   },
   "dependencies": {
     "next": "12.0.2",
@@ -22,6 +25,7 @@
   },
   "peerDependencies": {
     "@impr3siones/models": "0.0.1",
-    "@impr3siones/utils": "0.0.1"
+    "@impr3siones/utils": "0.0.1",
+    "@impr3siones/data-connector": "0.0.1"
   }
 }

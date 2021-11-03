@@ -31,5 +31,8 @@
   },
   "dependencies": {
     "firebase": "^9.2.0"
+  },
+  "peerDependencies": {
+    "@impr3siones/models": "0.0.1"
   }
 }

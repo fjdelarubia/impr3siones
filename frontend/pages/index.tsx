@@ -2,13 +2,9 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Order, OrderStatus } from '@impr3siones/models';
-import { leftPadding, completeOrder } from '@impr3siones/utils';
-import { useState } from 'react';
-
-const SOME_ORDERS: Order[] = Array.from({ length: 10 }).map((el, index) => ({
-  id: `${leftPadding(index + 1, 0, 5)}`,
-  status: OrderStatus.Ready
-}));
+import { completeOrder } from '@impr3siones/utils';
+import { useEffect, useState } from 'react';
+import { Connector } from '@impr3siones/data-connector';
 
 interface OrderProps {
   order: Order;
@@ -25,7 +21,13 @@ const OrderItem: React.FC<OrderProps> = ({ order, handleOrderCompleted }) => (
 );
 
 const Home: NextPage = () => {
-  const [orders, setOrders] = useState(SOME_ORDERS);
+  const [orders, setOrders] = useState<Order[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      setOrders(await Connector.getOrders());
+    })();
+  }, []);
 
   const handleOrderCompleted = (order: Order) => {
     completeOrder(order);

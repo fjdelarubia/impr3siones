@@ -1,3 +1,5 @@
+import { FirebaseMap } from './utils';
+
 export enum FirebaseOrderStatus {
   Pending = 'p',
   Processing = 'pr',
@@ -6,6 +8,7 @@ export enum FirebaseOrderStatus {
 }
 
 export interface FirebaseOrder {
-  i: string;
   s: FirebaseOrderStatus;
 }
+
+export type FirebaseOrders = FirebaseMap<FirebaseOrder>;
