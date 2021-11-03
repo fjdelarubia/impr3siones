@@ -13,7 +13,7 @@
     "lint:ci": "yarn eslint ./src --max-warnings 0",
     "lint": "yarn eslint ./src"
   },
-  "author": "Javier de la Rubia <me@jrubia.es>",
+  "author": "Javier de la Rubia (fjdelarubia) <javier.jrt@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^26.0.15",

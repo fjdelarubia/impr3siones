@@ -1,5 +1,5 @@
 {
-  "name": "@impr3siones/utils",
+  "name": "@impr3siones/data-connector",
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
@@ -29,7 +29,7 @@
     "ts-jest": "^26.4.3",
     "typescript": "4.4.4"
   },
-  "peerDependencies": {
-    "@impr3siones/models": "0.0.1"
+  "dependencies": {
+    "firebase": "^9.2.0"
   }
 }

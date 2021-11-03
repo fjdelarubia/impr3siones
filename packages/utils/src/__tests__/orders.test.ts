@@ -1,13 +1,13 @@
-import { Order } from '@impr3siones/models';
+import { Order, OrderStatus } from '@impr3siones/models';
 import { completeOrder } from '../orders';
 
 it('should complete an order', () => {
   const order: Order = {
     id: 'some-id',
-    status: 'pending'
+    status: OrderStatus.Ready
   };
 
   completeOrder(order);
 
-  expect(order.status).toBe('completed');
+  expect(order.status).toBe(OrderStatus.Completed);
 });

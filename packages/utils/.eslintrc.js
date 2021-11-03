@@ -59,7 +59,7 @@ module.exports = {
     'no-void': 'error',
     'prefer-const': 'warn'
   },
-  ignorePatterns: ['*/dist', '*/node_modules', 'tsconfig.json', '.eslintrc.js'],
+  ignorePatterns: ['dist', 'node_modules', 'tsconfig.json', '.eslintrc.js'],
   env: {
     jest: true
   }
