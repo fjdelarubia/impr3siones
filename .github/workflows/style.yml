@@ -13,6 +13,8 @@ jobs:
           node-version: '12'
       - name: Install package dependencies
         run: yarn install
+      - name: Build project
+        run: yarn workspaces run build:ci
       - name: Run lint
         run: yarn workspaces run lint:ci
         env:
