@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "v": {
+      ".read": true,
+      ".write": false
+    },
+    "o": {
+      ".read": true,
+      ".write": false
+    }
+  }
+}
