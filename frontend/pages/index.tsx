@@ -1,38 +1,26 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { Order, OrderStatus } from '@impr3siones/models';
-import { completeOrder } from '@impr3siones/utils';
-import { useEffect, useState } from 'react';
 import { Connector } from '@impr3siones/data-connector';
+import { useEffect, useState } from 'react';
+import { UserData } from '@impr3siones/data-connector';
 
-interface OrderProps {
-  order: Order;
-  handleOrderCompleted: (order: Order) => void;
-}
+const handleLogin = () => {
+  Connector.loginWithGoogle();
+};
 
-const OrderItem: React.FC<OrderProps> = ({ order, handleOrderCompleted }) => (
-  <li>
-    {order.id} - {order.status}{' '}
-    {order.status !== OrderStatus.Completed && (
-      <button onClick={() => handleOrderCompleted(order)}>Completar</button>
-    )}
-  </li>
-);
+const handleLogout = () => {
+  Connector.logout();
+};
 
 const Home: NextPage = () => {
-  const [orders, setOrders] = useState<Order[]>([]);
+  const [userData, setUserData] = useState<UserData | null>(null);
 
   useEffect(() => {
-    (async () => {
-      setOrders(await Connector.getOrders());
-    })();
+    Connector.onAuthDataReceived((userData) => {
+      setUserData(userData || null);
+    });
   }, []);
-
-  const handleOrderCompleted = (order: Order) => {
-    completeOrder(order);
-    setOrders([...orders]);
-  };
 
   return (
     <div className={styles.container}>
@@ -48,16 +36,15 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <h1 className={styles.title}>Bienvenido a impr3siones</h1>
 
-        <h3>Lista de pedidos</h3>
-        <ul className={styles.orderList}>
-          {orders.map((order) => (
-            <OrderItem
-              key={order.id}
-              order={order}
-              handleOrderCompleted={handleOrderCompleted}
-            />
-          ))}
-        </ul>
+        {!userData && (
+          <button onClick={handleLogin}>Iniciar sesión con Google</button>
+        )}
+        {userData && (
+          <>
+            <h3>Hola {userData.displayName}</h3>
+            <button onClick={handleLogout}>Cerrar sesión</button>
+          </>
+        )}
       </main>
 
       <footer className={styles.footer}>Let&apos;s do this!</footer>
