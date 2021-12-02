@@ -1,3 +1,3 @@
-export { default as Connector } from './firebase/connector';
+export { auth, orders, storage } from './firebase/connectors';
 export * from './models';
 export * from './listeners';
