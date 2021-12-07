@@ -9,6 +9,7 @@ export const firebaseUserDataToUserData = (
   }
 
   return {
+    uid: user.uid,
     emailVerified: user.emailVerified,
     displayName: user.displayName || undefined,
     photoUrl: user.photoURL || undefined
