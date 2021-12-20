@@ -1,0 +1,18 @@
+@import '../../../styles/colors.scss';
+
+.dialog-action {
+  margin: 0;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: $primary-color;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+
+  &:hover {
+    background: $primary-color;
+    color: #ffffff;
+  }
+}
