@@ -4,10 +4,8 @@ import styles from '../styles/Home.module.css';
 import { auth, storage } from '@impr3siones/data-connector';
 import { useEffect, useRef, useState } from 'react';
 import { UserData } from '@impr3siones/data-connector';
-
-const handleLogin = () => {
-  auth.loginWithGoogle();
-};
+import useDialogs from '../hooks/use-dialogs';
+import Button from '../components/button';
 
 const handleLogout = () => {
   auth.logout();
@@ -47,6 +45,21 @@ const Home: NextPage = () => {
     }
   };
 
+  const { showAlertDialog, showConfirmDialog } = useDialogs();
+
+  const showDialogs = async () => {
+    showAlertDialog({
+      title: 'Título',
+      message: 'Mensaje de alerta'
+    });
+    const result = await showConfirmDialog({
+      title: 'Título',
+      message: 'Diálogo de confirmación'
+    });
+
+    console.log(result);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -60,26 +73,9 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Bienvenido a impr3siones</h1>
-
-        {!userData && (
-          <button onClick={handleLogin}>Iniciar sesión con Google</button>
-        )}
-        {userData && (
-          <>
-            <h3>Hola {userData.displayName}</h3>
-
-            {!downloadUrl && (
-              <button onClick={handleUploadFile}>Subir archivo</button>
-            )}
-            {!!downloadUrl && (
-              <a href={downloadUrl} download>
-                Descargar
-              </a>
-            )}
-            <br />
-            <button onClick={handleLogout}>Cerrar sesión</button>
-          </>
-        )}
+        <Button onClick={showDialogs} variant="secondary">
+          Mostrar diálogos
+        </Button>
       </main>
 
       <footer className={styles.footer}>Let&apos;s do this!</footer>
