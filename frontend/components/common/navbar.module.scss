@@ -1,0 +1,13 @@
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+    line-height: 64px;
+
+    &__brand {
+        margin-left: 16px;
+        height: 100%;
+    }
+}
