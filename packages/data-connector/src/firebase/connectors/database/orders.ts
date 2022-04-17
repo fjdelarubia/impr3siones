@@ -6,7 +6,7 @@ import { firebaseOrdersToAppOrders } from '../../converters/order';
 import DatabaseConnector from './database';
 import { PATH_ORDERS } from './database-paths';
 
-export default class OrdersConnector extends DatabaseConnector {
+export class OrdersConnector extends DatabaseConnector {
   constructor(database: Database) {
     super(database);
   }

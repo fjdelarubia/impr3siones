@@ -1,5 +1,5 @@
 import React from 'react';
-import { classnames } from '../utils/classnames';
+import { classnames } from '../../utils/classnames';
 import styles from './button.module.scss';
 
 interface Props {
